@@ -24,7 +24,9 @@ extern void dispose_mbck(mbck_t **m);
 extern void update_mbck_scale(mbck_t *m, int width, int height);
 
 //  mbck_physics_process : Fonction nécéssitant d'être appeler a chaque frame,
-//    met a jour le fond parallax d'un mouvement de delta pixel.
+//    met a jour le fond parallax d'un mouvement de delta pixel. Si delta est
+//    positif alors le fond ce déplace vers la droite vers la gauche, dans le
+//    sens contraire pour un delta négatif.
 extern void mbck_physics_process(mbck_t *m, float delta);
 
 #endif
