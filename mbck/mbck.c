@@ -37,8 +37,9 @@ void update_mbck_scale(mbck_t *m, int width, int height) {
 }
 
 void mbck_physics_process(mbck_t *m, float delta) {
-  m->scroll_b -= delta;
-  if (m->scroll_b <= -m->width * (m->rotate ? 2 : 1)) {
+  m->scroll_b += delta;
+  if ((delta < 0 && m->scroll_b <= -m->width * (m->rotate ? 2 : 1))
+      || (delta > 0 && m->scroll_b >= m->width * (m->rotate ? 2 : 1))) {
     m->scroll_b = 0;
   }
   DrawTexturePro(m->b,
@@ -49,13 +50,15 @@ void mbck_physics_process(mbck_t *m, float delta) {
   if (m->rotate) {
     DrawTexturePro(m->b,
         (Rectangle){ m->b.width, 0, -m->b.width, m->b.height },
-        (Rectangle){ m->scroll_b + m->width, 0, m->width, m->height },
+        (Rectangle){ m->scroll_b + (delta < 0 ? 1 : -1) * m->width, 0, m->width,
+                     m->height },
         (Vector2){ 0, 0 },
         0.0f, WHITE);
   }
   DrawTexturePro(m->b,
       (Rectangle){ 0, 0, m->b.width, m->b.height },
-      (Rectangle){ m->scroll_b + m->width * (m->rotate ? 2 : 1), 0, m->width,
+      (Rectangle){ m->scroll_b + (delta
+                   < 0 ? 1 : -1) * m->width * (m->rotate ? 2 : 1), 0, m->width,
                    m->height },
       (Vector2){ 0, 0 },
       0.0f, WHITE);

@@ -11,7 +11,7 @@ typedef struct mbck_t mbck_t;
 //  init_mbck : Renvoie le controleur du fond parallax, b etant le chemin vers
 //    l'image du fond, w et h la largeur et la hauteur déssirer. Le booléen
 //    rotate est mise a disposition pour les images qui aurait besoin d'une
-//    d'une rotation à 180° pour la deuxième image.
+//    d'une rotation à 180° pour respecter la continuer du motif de l'image.
 //    Renvoie nullptr en cas d'erreur, un pointeur sur la structure dans le cas
 //    contraire.
 extern mbck_t *init_mbck(const char *b, int w, int h, bool rotate);
