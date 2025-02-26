@@ -29,9 +29,9 @@ int main(void) {
       update_mbck_scale(k, width, height);
     }
     BeginDrawing();
-    mbck_physics_process(m, -10.0f);
-    // mbck_physics_process(f, 2.0f);
-    // mbck_physics_process(k, 3.0f);
+    mbck_physics_process(m, 5.0f);
+    mbck_physics_process(f, 2.0f);
+    mbck_physics_process(k, 3.0f);
     EndDrawing();
   }
   dispose_mbck(&m);
