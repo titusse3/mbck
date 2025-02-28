@@ -2,7 +2,7 @@
 
 Parallax background in *C*, using Raylib module.
 
-![Gif example](https://imgur.com/BkoAG10)
+![Gif example](https://i.imgur.com/YMzI9Qv.gif)
 
 ## Use the example
 
