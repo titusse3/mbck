@@ -1,4 +1,4 @@
-mbck_dir = ../mbck/
+mbck_dir = ../
 CC = gcc
 CFLAGS = -std=c23 \
 	-I$(mbck_dir)
